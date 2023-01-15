@@ -63,7 +63,6 @@ router.get("/", auth.optional, function(req, res, next) {
 
       if (seller) {
         query.seller = seller._id;
-        query.isVerified = seller.isVerified;
       }
 
       if (favoriter) {
@@ -146,7 +145,6 @@ router.post("/", auth.required, function(req, res, next) {
       }
 
       var item = new Item(req.body.item);
-
       item.seller = user;
 
       return item.save().then(function() {
