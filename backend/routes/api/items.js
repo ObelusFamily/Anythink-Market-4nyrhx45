@@ -145,7 +145,6 @@ router.post("/", auth.required, function(req, res, next) {
       }
 
       var item = new Item(req.body.item);
-
       item.seller = user;
 
       return item.save().then(function() {
